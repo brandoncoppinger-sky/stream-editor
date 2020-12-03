@@ -1,11 +1,12 @@
-import { Octokit } from '@octokit/rest'
+import { Octokit } from '@octokit/rest';
 var express = require('express');
 var router = express.Router();
+const yaml = require('js-yaml');
 
 const octokit = new Octokit({auth: "7c9313ab5a83df19181fcd6717b23e1b779f594e"});
 
 /* GET directory listings. */
-router.get('/', async (req, res) => {
+router.get('/get-directories', async (req, res) => {
   try {
     const reference = await octokit.git.getRef({
       owner: "brandonc118",
@@ -27,12 +28,10 @@ router.get('/', async (req, res) => {
     const filteredResponse = response.data.tree.filter(
       (directory) =>
         directory.type.includes("tree") 
-    ).map((page) => ({
-      name: page.path
-    }));
+    ).map((page) => (page.path));
 
      //console.log(result)
-    res.status(response.status).send({ directories: filteredResponse })
+    res.status(response.status).send(filteredResponse)
   } catch (error) {
     res.status(error.status).send({error})
   }
@@ -54,8 +53,6 @@ router.get('/get-streams', async (req, res) => {
       tree_sha: branchSha,
       recursive: true,
     });
-    
-    const arr = [];
 
     const filteredResponse = response.data.tree.filter(
       (directory) =>
@@ -92,7 +89,7 @@ router.get('/get-stream-files', async (req, res)  => {
 
     console.log(filteredResponse)
 
-    res.status(response.status).send({files: filteredResponse})
+    res.status(response.status).send(filteredResponse)
   } catch (error) {
     res.status(error.status).send({ error })
   }
@@ -111,8 +108,9 @@ router.get('/get-stream-files-content', async (req, res)  => {
     const buff = Buffer.from(response.data.content, 'base64')
     const text = buff.toString('ascii')
 
-    res.set('Content-Type', 'text/yaml')
-    res.status(response.status).send(text)
+    const doc = yaml.safeLoad(text);
+  
+    res.status(response.status).send(doc)
 
   } catch (error) {
     res.status(error.status).send({ error })

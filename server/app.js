@@ -1,19 +1,18 @@
+var cors = require('cors');
 var express = require('express');
 
-
+var status = require('./routes/status');
+var github = require('./routes/github');
 
 const app = express();
-const port = 3000
+const port = 8000;
 
-var status = require('./routes/status')
-var github = require('./routes/github')
-
-app.use('/status', status)
-app.use('/github', github)
-
+app.use(cors());
+app.use('/status', status);
+app.use('/github', github);
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`Example app listening at http://localhost:${port}`);
 })
 
 module.exports = app;
