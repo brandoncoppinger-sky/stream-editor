@@ -37,7 +37,7 @@ class StreamDetails extends React.Component {
                         overlay={
                           <Tooltip id={`tooltip-${placement}`}>
                             <strong>Please enter the correct details for {key}</strong>.
-                              </Tooltip>
+                          </Tooltip>
                         }
                       >
                         <Button variant="success" className="ml-1">i</Button>
