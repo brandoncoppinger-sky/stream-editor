@@ -1,11 +1,10 @@
 import React from 'react';
-import './styles/App.css';
+import '../styles/StreamEditor.css';
 import { DropdownButton, Dropdown } from 'react-bootstrap';
-import StreamDetails from './containers/stream-details';
-import { NavBar } from './components/nav-bar';
-import './styles/index.css';
+import StreamDetails from '../containers/stream-details';
+import '../styles/index.css';
 
-class App extends React.Component {
+class StreamEditor extends React.Component {
   state = {
     directories: [],
     streamData: [],
@@ -67,7 +66,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <NavBar />
         <center>
 
           <div className="dropdown-collection">
@@ -113,6 +111,6 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default StreamEditor;
 
 

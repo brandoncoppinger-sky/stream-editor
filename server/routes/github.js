@@ -4,7 +4,7 @@ var express = require('express');
 var router = express.Router();
 const yaml = require('js-yaml');
 
-const octokit = new Octokit({ auth: "7c9313ab5a83df19181fcd6717b23e1b779f594e" });
+const octokit = new Octokit({ auth: "f86b16fb5e44181f8d908b999c0081af2304f43e" });
 
 /* GET directory listings. */
 router.get('/get-directories', async (req, res) => {
@@ -202,7 +202,7 @@ router.post('/test-commit', async (req, res) => {
   } catch (error) {
     res.status(error.status).send({ error })
   }
-  
+
 
 })
 

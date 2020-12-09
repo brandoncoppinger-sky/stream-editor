@@ -30,7 +30,6 @@ class StreamDetails extends React.Component {
       .then(result => this.setState({ initialStream: result,  stream: result, isLoading: false}))
       .catch(error => this.setState({ message: error }));
 
-    this.setState({ isLoading: false })
   }
 
   componentDidUpdate(prevProps) {
@@ -42,10 +41,9 @@ class StreamDetails extends React.Component {
       })
         // .then(fetchStatusHandler)
         .then(result => (result.text()))
-        .then(result => this.setState({ stream: result, message: `Now viewing ${this.props.selectedDirectory}/${this.props.selectedStream}`, shouldShowToast: true }))
+        .then(result => this.setState({ stream: result, message: `Now viewing ${this.props.selectedDirectory}/${this.props.selectedStream}`, shouldShowToast: true, isLoading: false}))
         .catch(error => this.setState({ message: error, shouldShowToast: true }));
 
-      this.setState({ isLoading: false })
     }
   }
 

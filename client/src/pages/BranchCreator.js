@@ -1,13 +1,7 @@
 import React from 'react'
-import { Form } from 'react-bootstrap'
+import { Form, Button } from 'react-bootstrap'
 
-import { SpinnerPage } from "../components/spinner"
-import { Toastie } from "../components/toaster"
-import '../styles/stream-details.css';
-import "ace-builds/src-noconflict/theme-cobalt";
-import "ace-builds/src-noconflict/mode-yaml";
-
-class BranchCreation extends React.Component {
+class BranchCreator extends React.Component {
 
     state = {
         isLoading: true,
@@ -38,4 +32,4 @@ class BranchCreation extends React.Component {
     }
 };
 
-export default BranchCreation;
+export default BranchCreator;

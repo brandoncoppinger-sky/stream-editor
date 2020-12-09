@@ -1,13 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './styles/index.css';
 import 'bootstrap/dist/css/bootstrap.css'
-import App from './App';
+import StreamEditor from './pages/StreamEditor';
+import BranchCreator from './pages/BranchCreator';
 import * as serviceWorker from './serviceWorker';
+import {Navigation} from './components/navigation'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Navigation />
+      <Switch>
+        <Route exact path="/"> 
+          <StreamEditor />  
+        </Route>
+        <Route exact path="/create-new-branch">
+          <BranchCreator />
+        </Route>
+      </Switch>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
