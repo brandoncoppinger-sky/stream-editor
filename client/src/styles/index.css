@@ -11,13 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.stream-form{
-  width: 80%;
-  margin: 20px auto;
-}
-
-#stream-inputs{
-  width: 90%;
-  float: left;
-}

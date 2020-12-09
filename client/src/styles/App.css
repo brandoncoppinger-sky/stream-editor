@@ -38,8 +38,13 @@
   margin-left: auto;
 }
 
-.stream-selector {
+.stream-selector, .directory-selector {
   margin-left: 10px
+}
+
+.currently-showing {
+  font-size: 12px;
+  margin: 0px 0px 2px 12px;
 }
 
 @keyframes App-logo-spin {
