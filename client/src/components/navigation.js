@@ -11,7 +11,7 @@ export const Navigation = () => {
                 <Nav className="mr-auto">
                     <Nav.Link href="/">Home</Nav.Link>
                     <Nav.Link href="https://github.com/sky-uk/sds-dvn-files-streams" target="_blank">Github Repo</Nav.Link>
-                    <Nav.Link as={Link} to="create-new-branch">Create a Branch</Nav.Link>
+                    {/* <Nav.Link as={Link} to="create-new-branch">Create a Branch</Nav.Link> */}
                 </Nav>
                 <Form inline>
                     <FormControl type="text" placeholder="Search (WIP)" className="mr-sm-2" />

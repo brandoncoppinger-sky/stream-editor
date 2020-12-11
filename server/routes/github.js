@@ -4,7 +4,7 @@ var express = require('express');
 var router = express.Router();
 const yaml = require('js-yaml');
 
-const octokit = new Octokit({ auth: "f86b16fb5e44181f8d908b999c0081af2304f43e" });
+const octokit = new Octokit({ auth: "327684fa2665faca9b7df9d6d6fb85166689c6b2" });
 
 /* GET directory listings. */
 router.get('/get-directories', async (req, res) => {
